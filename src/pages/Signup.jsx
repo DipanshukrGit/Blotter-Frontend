@@ -28,7 +28,7 @@ const Signup = () => {
       data.append("image", formData.image);
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:4000/user/signup",
+        "https://blotter-backend-enoo.onrender.com/user/signup",
         data,
         {
           headers: {
