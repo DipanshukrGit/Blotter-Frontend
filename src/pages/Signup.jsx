@@ -49,7 +49,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 flex items-center justify-center py-12 px-4">
       <div className="w-full max-w-md">
         <div className="glass rounded-3xl shadow-2xl p-8 animate-fade-in">
           {/* Header */}
@@ -123,7 +123,7 @@ const Signup = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full px-6 py-3 bg-purple-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 btn-modern disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 btn-modern disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? "Creating Account..." : "Create Account"}
             </button>

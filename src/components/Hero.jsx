@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <div className="relative overflow-hidden bg-gray-50 py-20 px-4">
+    <div className="relative overflow-hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -22,7 +22,7 @@ const Hero = () => {
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/blogs"
-                className="px-8 py-4 bg-purple-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 btn-modern"
+                className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 btn-modern"
               >
                 Explore Blotters
               </Link>
@@ -37,7 +37,7 @@ const Hero = () => {
 
           {/* Right Image */}
           <div className="relative">
-            <div className="absolute inset-0 bg-purple-400 rounded-3xl blur-3xl opacity-20 animate-pulse"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 rounded-3xl blur-3xl opacity-20 animate-pulse"></div>
             <div className="relative">
               <img 
                 src={assets.hero} 

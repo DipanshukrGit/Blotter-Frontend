@@ -3,7 +3,7 @@ import { assets } from "../assets/assets";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white mt-20">
+    <footer className="bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Section */}
@@ -80,7 +80,7 @@ const Footer = () => {
               />
               <button
                 type="submit"
-                className="w-full px-4 py-2 bg-purple-600 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+                className="w-full px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300"
               >
                 Subscribe
               </button>

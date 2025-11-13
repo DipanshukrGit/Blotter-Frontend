@@ -35,7 +35,7 @@ const Navbar = () => {
                 className="text-gray-700 hover:text-purple-600 font-medium transition-all duration-300 relative group"
               >
                 Home
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-600 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 group-hover:w-full transition-all duration-300"></span>
               </Link>
             </li>
             <li>
@@ -44,7 +44,7 @@ const Navbar = () => {
                 className="text-gray-700 hover:text-purple-600 font-medium transition-all duration-300 relative group"
               >
                 Blotters
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-600 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 group-hover:w-full transition-all duration-300"></span>
               </Link>
             </li>
             <li>
@@ -53,7 +53,7 @@ const Navbar = () => {
                 className="text-gray-700 hover:text-purple-600 font-medium transition-all duration-300 relative group"
               >
                 About
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-600 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 group-hover:w-full transition-all duration-300"></span>
               </Link>
             </li>
             <li>
@@ -62,7 +62,7 @@ const Navbar = () => {
                 className="text-gray-700 hover:text-purple-600 font-medium transition-all duration-300 relative group"
               >
                 Contact
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-600 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 group-hover:w-full transition-all duration-300"></span>
               </Link>
             </li>
           </ul>
@@ -72,7 +72,7 @@ const Navbar = () => {
             <div className="flex items-center gap-3">
               <Link
                 to={"/dashboard"}
-                className="px-6 py-2.5 bg-purple-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 btn-modern"
+                className="px-6 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 btn-modern"
               >
                 Dashboard
               </Link>
@@ -86,7 +86,7 @@ const Navbar = () => {
           ) : (
             <Link
               to={"/login"}
-              className="px-8 py-2.5 bg-purple-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 btn-modern"
+              className="px-8 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 btn-modern"
             >
               Sign In
             </Link>

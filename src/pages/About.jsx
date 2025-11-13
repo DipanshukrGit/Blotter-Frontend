@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gray-50 py-20 px-4">
+      <section className="bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 py-20 px-4">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="gradient-text">About Blotter</span>
@@ -51,7 +51,7 @@ const About = () => {
           </div>
 
           <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <div className="absolute inset-0 bg-purple-400 rounded-3xl blur-2xl opacity-20"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 rounded-3xl blur-2xl opacity-20"></div>
             <img 
               src={assets.about} 
               alt="About Blotter" 

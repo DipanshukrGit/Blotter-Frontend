@@ -60,7 +60,7 @@ const SingleBlog = () => {
       {/* Header */}
       <header className="mb-8">
         <div className="mb-4">
-          <span className="px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-full inline-block">
+          <span className="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-semibold rounded-full inline-block">
             {blog.category}
           </span>
         </div>
@@ -112,7 +112,7 @@ const SingleBlog = () => {
 
       {/* Footer Actions */}
       <div className="mt-12 pt-8 border-t border-gray-200 flex flex-wrap gap-4">
-        <button className="px-6 py-3 bg-purple-600 text-white rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+        <button className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
           Share
         </button>
         <button className="px-6 py-3 bg-gray-100 text-gray-700 rounded-full font-semibold hover:bg-gray-200 transform hover:scale-105 transition-all duration-300">

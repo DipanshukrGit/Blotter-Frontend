@@ -1,16 +1,23 @@
 // API Configuration
 const getBaseUrl = () => {
-  if (typeof window === 'undefined') {
-    return import.meta.env.VITE_API_URL || "http://localhost:4000";
+  // Use environment variable if set, otherwise determine based on environment
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
   }
   
-  const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:4000";
-  const DEPLOYED_API_URL = "https://blotter-backend-enoo.onrender.com";
+  // Check if running in production (Vercel)
+  if (typeof window !== 'undefined') {
+    const isLocalhost = window.location.hostname === "localhost" || 
+                       window.location.hostname === "127.0.0.1";
+    
+    // Use deployed Render backend URL for production (Vercel)
+    if (!isLocalhost) {
+      return "https://blotter-backend-enoo.onrender.com";
+    }
+  }
   
-  // Use local URL if running on localhost, otherwise use deployed URL
-  return (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
-    ? API_BASE_URL
-    : DEPLOYED_API_URL;
+  // Default to localhost for development
+  return "http://localhost:4000";
 };
 
 export const BASE_URL = getBaseUrl();

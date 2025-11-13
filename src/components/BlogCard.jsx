@@ -37,12 +37,12 @@ const BlogCard = ({
               e.target.src = 'https://via.placeholder.com/400x300?text=Blotter';
             }}
           />
-          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
         
         {/* Category Badge */}
         <div className="absolute top-4 left-4">
-          <span className="px-4 py-1.5 bg-purple-600 text-white text-sm font-semibold rounded-full shadow-lg backdrop-blur-sm bg-white/20">
+          <span className="px-4 py-1.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-semibold rounded-full shadow-lg backdrop-blur-sm bg-white/20">
             {category}
           </span>
         </div>
@@ -51,7 +51,7 @@ const BlogCard = ({
       {/* Content */}
       <div className="p-6">
         <Link to={`/blog/${id}`}>
-          <h2 className='text-2xl font-bold text-gray-800 mb-3 line-clamp-2 group-hover:text-purple-600 transition-all duration-300 cursor-pointer'>
+          <h2 className='text-2xl font-bold text-gray-800 mb-3 line-clamp-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-pink-600 transition-all duration-300 cursor-pointer'>
             {title}
           </h2>
         </Link>
@@ -78,7 +78,7 @@ const BlogCard = ({
           </div>
           <Link 
             to={`/blog/${id}`}
-            className="px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+            className="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-semibold rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300"
           >
             Read →
           </Link>
