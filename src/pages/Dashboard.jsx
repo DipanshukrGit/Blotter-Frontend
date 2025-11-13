@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { API_ENDPOINTS } from "../config/api";
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState("list");
@@ -30,8 +31,8 @@ const Dashboard = () => {
     data.append("image", formData.image);
     try {
       const res = await axios.post(
-        "https://blotter-backend-enoo.onrender.com/blog/create",
-        formData,
+        API_ENDPOINTS.BLOG.CREATE,
+        data,
         {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -41,36 +42,51 @@ const Dashboard = () => {
       );
       console.log("res", res);
       toast.success(res.data.message);
-      (formData.title = ""),
-        (formData.category = ""),
-        (formData.description = ""),
-        (formData.image = null);
+      setFormData({
+        title: "",
+        category: "",
+        description: "",
+        image: null,
+      });
+      // Refresh blogs list
+      const blogsRes = await axios.get(API_ENDPOINTS.BLOG.ALL, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (blogsRes.data.success && blogsRes.data.blogs) {
+        setBlogs(blogsRes.data.blogs);
+      }
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error.response?.data?.message || error.message);
     }
   };
 
   useEffect(() => {
     const allBlogs = async () => {
       try {
-        const res = await axios.get("https://blotter-backend-enoo.onrender.com/blog/all", {
+        const res = await axios.get(API_ENDPOINTS.BLOG.ALL, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
 
-        setBlogs(res.data.blogs);
+        if (res.data.success && res.data.blogs) {
+          setBlogs(res.data.blogs);
+        }
       } catch (error) {
         console.log("error", error);
       }
     };
-    allBlogs();
-  }, []);
+    if (token) {
+      allBlogs();
+    }
+  }, [token]);
 
   const removeBlog = async (blogId) => {
     try {
       const res = await axios.delete(
-        `https://blotter-backend-enoo.onrender.com/blog/delete/${blogId}`,
+        API_ENDPOINTS.BLOG.DELETE(blogId),
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -175,7 +191,7 @@ const Dashboard = () => {
                       <td className="border px-4 py-2">{blog.category}</td>
                       <td className="border px-4 py-2">
                         <img
-                          src={`https://blotter-backend-enoo.onrender.com/images/${blog.image}`}
+                          src={API_ENDPOINTS.IMAGES(blog.image)}
                           alt={blog.title}
                           className="w-16 h-16 object-cover mx-auto"
                         />

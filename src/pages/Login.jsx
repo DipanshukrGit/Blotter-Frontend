@@ -1,4 +1,5 @@
 import axios from "axios";
+import { API_ENDPOINTS } from "../config/api";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -23,7 +24,7 @@ const Login = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "https://blotter-backend-enoo.onrender.com/user/login",
+        API_ENDPOINTS.USER.LOGIN,
         formData,
         {
           headers: {
@@ -45,44 +46,67 @@ const Login = () => {
     }
   };
   return (
-    <div>
-      <div className="w-full bg-pink-200 py-12 mx-auto flex items-center justify-center ">
-        <div className="w-full bg-white max-w-md p-5 mx-auto py-6 border-1 border-gray-200 shadow-md">
-          <h1 className="text-lg font-bold text-center text-gray-700">
-            Login into your account!
-          </h1>
-          <form
-            onSubmit={submitHandler}
-            className="flex flex-col gap-5 mt-5 w-full"
-          >
-            <input
-              name="email"
-              value={formData.email}
-              onChange={onChangeHandler}
-              type="email"
-              placeholder="Your email"
-              className="w-full p-2 border border-gray-300 rounded outline-none"
-              required
-            />
-            <input
-              name="password"
-              value={formData.password}
-              onChange={onChangeHandler}
-              type="password"
-              placeholder="Your password"
-              className="w-full p-2 border border-gray-300 rounded outline-none"
-              required
-            />
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4">
+      <div className="w-full max-w-md">
+        <div className="glass rounded-3xl shadow-2xl p-8 animate-fade-in">
+          {/* Header */}
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-bold mb-2">
+              <span className="gradient-text">Welcome Back</span>
+            </h1>
+            <p className="text-gray-600">Sign in to your Blotter account</p>
+          </div>
 
-            <button className="bg-orange-600 text-white px-6 py-2 w-full cursor-pointer">
-              Signin
+          {/* Form */}
+          <form onSubmit={submitHandler} className="space-y-6">
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Email
+              </label>
+              <input
+                name="email"
+                value={formData.email}
+                onChange={onChangeHandler}
+                type="email"
+                placeholder="your.email@example.com"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all duration-300"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Password
+              </label>
+              <input
+                name="password"
+                value={formData.password}
+                onChange={onChangeHandler}
+                type="password"
+                placeholder="Enter your password"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all duration-300"
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full px-6 py-3 bg-purple-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 btn-modern disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loading ? "Signing in..." : "Sign In"}
             </button>
           </form>
-          <p className="text-center mt-4">
+
+          {/* Footer */}
+          <p className="text-center mt-6 text-gray-600">
             Don't have an account?{" "}
-            <Link to={"/register"} className="text-orange-600 cursor-pointer">
-              Register Here
-            </Link>{" "}
+            <Link
+              to={"/register"}
+              className="text-purple-600 font-semibold hover:text-pink-600 transition-colors duration-300"
+            >
+              Create Account
+            </Link>
           </p>
         </div>
       </div>
